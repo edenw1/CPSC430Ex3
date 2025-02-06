@@ -1,6 +1,7 @@
 from view_object import ViewObject
 from pubsub import pub
 
+#code to delete obects self.deleted
 
 class PlayerView:
     def __init__(self, game_logic):
@@ -14,4 +15,6 @@ class PlayerView:
         self.view_objects[game_object.id] = view_object
 
     def tick(self):
-        pass
+        for key in self.view_objects:
+            self.view_objects[key].tick()
+

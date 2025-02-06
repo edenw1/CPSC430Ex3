@@ -20,7 +20,10 @@ class GameLogic:
 
     def load_world(self):
         self.create_object([0, 0, 0], "crate")
-
+        self.create_object([0, 0, 2], "crate")
+        self.create_object([0, 0, 4], "crate")
+        self.create_object([0, 0, -2], "crate")
+        self.create_object([0, 0, -4], "crate")
     def get_property(self, key):
         if key in self.properties:
             return self.properties[key]
