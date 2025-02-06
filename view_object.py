@@ -28,8 +28,7 @@ class ViewObject:
         self.is_selected = True
 
     def tick(self):
-        if (self.toggle_texture_pressed):
-                #and self.is_selected):
+        if (self.toggle_texture_pressed and self.is_selected):
             if self.texture_on:
                 self.texture_on = False
                 self.cube.setTextureOff(1)

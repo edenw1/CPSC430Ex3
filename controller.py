@@ -44,7 +44,7 @@ class Main(ShowBase):
         self.run()
 
     def get_nearest_object(self):
-        self.pickerRay.setFromLens(self.camera, 0, 0)
+        self.pickerRay.setFromLens(self.camNode, 0, 0)
         if self.rayQueue.getNumEntries() > 0:
             self.rayQueue.sortEntries()
             entry = self.rayQueue.getEntry(0)
@@ -59,6 +59,9 @@ class Main(ShowBase):
 
     def tick(self, task):
         pub.sendMessage('input', events=self.input_events)
+        picked_object = self.get_nearest_object()
+        if picked_object:
+            picked_object.selected()
         self.game_logic.tick()
         self.player_view.tick()
         if self.game_logic.get_property("quit"):
